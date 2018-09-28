@@ -1,15 +1,14 @@
-package main 
+package main
 
 import (
 	"log"
 	"os"
-
 	"github.com/davidchrisx/skadi/proccess"
 	"github.com/davidchrisx/skadi/sheet"
 )
 
 func main() {
-	f, err := os.Open("GroupBGame2.dem")
+	f, err := os.Open(os.Args[1])
 	if err != nil {
 		log.Fatalf("unable to open file: %s", err)
 	}
