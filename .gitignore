@@ -1,2 +1,3 @@
 *.dem
 vendor/*
+client_secret.json
