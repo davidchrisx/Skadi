@@ -45,6 +45,14 @@
   revision = "5979233c5d6225d4a8e438cdd0b411888449ddab"
 
 [[projects]]
+  digest = "1:40e195917a951a8bf867cd05de2a46aaf1806c50cf92eebf4c16f78cd196f747"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
+  version = "v0.8.0"
+
+[[projects]]
   digest = "1:d867dfa6751c8d7a435821ad3b736310c2ed68945d05b50fb9d23aee0540c8cc"
   name = "github.com/sirupsen/logrus"
   packages = ["."]
@@ -129,6 +137,7 @@
   input-imports = [
     "github.com/dotabuff/manta",
     "github.com/dotabuff/manta/dota",
+    "github.com/pkg/errors",
     "github.com/sirupsen/logrus",
     "gopkg.in/Iwark/spreadsheet.v2",
   ]

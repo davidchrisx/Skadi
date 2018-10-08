@@ -15,7 +15,7 @@ import (
 func Run(m *skadi.Match) error {
 	service, err := spreadsheet.NewService()
 	if err != nil {
-		return errors.Wrap(err, "failed to get service)
+		return errors.Wrap(err, "failed to get service")
 	}
 	ss, err := service.FetchSpreadsheet("1jSFPTXN2Eam75vaMTgBRw404Ca1LQcBbWPkL3sw-ULM")
 	if err != nil {
@@ -55,7 +55,7 @@ func Run(m *skadi.Match) error {
 
 	pfSheet, err := ss.SheetByTitle("FantasyAllMatch")
 	if err != nil {
-		return err errors.Wrap(err, "failed to fetch fantasy sheet")
+		return errors.Wrap(err, "failed to fetch fantasy sheet")
 	}
 	r, err = strconv.Atoi(info.Columns[2][1].Value)
 	if err != nil {
