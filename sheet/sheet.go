@@ -9,38 +9,39 @@ import (
 
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/Iwark/spreadsheet.v2"
+	"github.com/pkg/errors"
 )
 
 func Run(m *skadi.Match) error {
 	service, err := spreadsheet.NewService()
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to get service)
 	}
 	ss, err := service.FetchSpreadsheet("1jSFPTXN2Eam75vaMTgBRw404Ca1LQcBbWPkL3sw-ULM")
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to fetch spreadsheet")
 	}
 	info, err := ss.SheetByTitle("Info")
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to fetch info sheet")
 	}
 	mSheet, err := ss.SheetByTitle("Matches")
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to fetch matches sheet")
 	}
 	r, err := strconv.Atoi(info.Columns[0][1].Value)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to convert info columns")
 	}
 	err = FillMatch(mSheet, r+1, m)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to fill match sheet")
 	}
 	log.Infoln("Fill Match OK")
 
 	pSheet, err := ss.SheetByTitle("MatchPlayerData")
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to fetch match player sheet")
 	}
 	r, err = strconv.Atoi(info.Columns[1][1].Value)
 	if err != nil {
@@ -48,13 +49,13 @@ func Run(m *skadi.Match) error {
 	}
 	err = FillPlayer(pSheet, r+1, m)
 	if err != nil {
-		return err
+		return errors.Wrap(err, "failed to fill match player sheet")
 	}
 	log.Infoln("Fill Player OK")
 
 	pfSheet, err := ss.SheetByTitle("FantasyAllMatch")
 	if err != nil {
-		return err
+		return err errors.Wrap(err, "failed to fetch fantasy sheet")
 	}
 	r, err = strconv.Atoi(info.Columns[2][1].Value)
 	if err != nil {
