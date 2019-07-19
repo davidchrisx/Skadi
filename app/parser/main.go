@@ -9,6 +9,7 @@ import (
 
 func main() {
 	f, err := os.Open(os.Args[1])
+	log.Println("parsing: ", os.Args[1])
 	if err != nil {
 		log.Fatalf("unable to open file: %s", err)
 	}

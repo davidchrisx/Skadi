@@ -5,8 +5,8 @@ go 1.12
 require (
 	cloud.google.com/go v0.28.0
 	github.com/davecgh/go-spew v0.0.0-20150223212011-fc32781af5e8
-	github.com/dotabuff/manta v0.0.0-20180726150624-adf25d64d83c
-	github.com/golang/protobuf v1.2.0
+	github.com/dotabuff/manta v1.2.0
+	github.com/golang/protobuf v1.3.2
 	github.com/golang/snappy v0.0.0-20160212113041-5979233c5d62
 	github.com/pkg/errors v0.8.0
 	github.com/sirupsen/logrus v1.0.6
